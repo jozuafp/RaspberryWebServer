@@ -1,0 +1,66 @@
+{% extends "utama.html" %} 
+
+{% block content %} 
+<center> 
+   <table > 
+      <thead> 
+      <tr> 
+    <td colspan=4 bgcolor=#FFEBCD><h3><strong>STATUS PERANGKAT 
+RASPBERY</strong></h3></td> 
+    </tr> 
+      </thead> 
+      <tr> 
+    <td>LED</td><td>:</td><td>{{ led }}</td> 
+      </tr> 
+      <tr> 
+    <td>BUZZER</td><td> : </td><td>{{ buzzer}}</td> 
+      </tr> 
+      <tr> 
+    <td>SUHU SEKARANG</td><td> : </td><td>{{ suhu }} C</td> 
+      </tr> 
+      <tr>
+ <td>KELEMBAPAN SEKARANG</td><td> : </td><td>{{ humidity }} %</td> 
+      </tr> 
+      <tr> 
+    <td>NILAI LDR SEKARANG</td><td> : </td><td>{{ val_ldr }} </td> 
+      </tr> 
+      <tr> 
+    <td>STATUS LAMPU SEKARANG</td><td> : </td> 
+       <td> 
+           {% if val_ldr >= 2500 %} 
+             LAMPU MENYALA 
+           {% else %} 
+             LAMPU MATI 
+           {% endif %}
+     </td> 
+      </tr> 
+     <tr> 
+    <td>KETINGGIAN AIR SEKARANG</td><td> : </td><td>{{ jarak }} cm </td> 
+     </tr> 
+     <tr> 
+    <td>STATUS MOTOR SEKARANG</td><td> : </td> 
+         <td> 
+           {% if jarak >= 15 %} 
+             MOTOR ON 
+         {% else %} 
+             MOTOR OFF 
+           {% endif %} 
+       </td> 
+      </tr> 
+      <thead> 
+      <tr> 
+          <td colspan=4 bgcolor=#FFEBCD><h3><strong>KONTROL PERINTAH</strong></h3></td> 
+      </tr> 
+      </thead> 
+      <tr> 
+    <td>KONTROL LAMPU :</td><td><a href="/led/on" class="button">Turn ON</a></td><td><a 
+href="/led/off" class="button">Turn OFF</a></td> 
+      </tr> 
+ <tr> 
+    <td>KONTROL BUZZER :</td><td> <a href="/led/on" class="button">Turn ON</a></td><td><a 
+href="/led/off" class="button">Turn OFF</a></td> 
+      </tr> 
+   </table>  
+</center> 
+
+{% endblock %} 
